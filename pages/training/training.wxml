@@ -5,9 +5,9 @@
   <view class="preview" wx:if="{{previewDisplay}}">
     <view class="preview_main">
       <view class="placeholder" wx:if="{{!scentences.length}}">
-        <view class="ph_item ph_{{index}}" wx:for="{{5}}"></view>
+        <view class="ph_item ph_{{index}}" wx:for="{{5}}" wx:key="*this"></view>
       </view>
-      <view class="preview_item" wx:for="{{scentences}}">
+      <view class="preview_item" wx:for="{{scentences}}" wx:key="english">
         <view class="en">{{item.english}}</view>
         <view class="cn">{{item.chinese}}</view>
       </view>
