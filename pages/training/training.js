@@ -13,7 +13,9 @@ Page({
     pregressLeft: '0',
     pregressDone: '0',
     previewDisplay: true,
-    enStateClass: ''
+    enStateClass: '',
+    textLeftBtn: '忘了',
+    textRightBtn: '记得'
   },
 
   /**
@@ -122,7 +124,7 @@ Page({
   },
   setProgress(index) {
     const percentage = (index + 1) / this.data.scentences.length
-    // const val = (percentage * 100).toFixed(2)
+
     this.setData({
       pregressLeft: `${(1 - percentage) * 400}rpx`,
       pregressDone: `${percentage * 400}rpx`

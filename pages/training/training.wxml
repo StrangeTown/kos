@@ -26,11 +26,11 @@
     <view class="btns">
       <view class="btn_wrap">
         <view class="progress" style="height: {{pregressLeft}}"></view>
-        <button class="btn" bind:touchstart="forget">忘了</button>
+        <button class="btn" bind:touchstart="forget">{{textLeftBtn}}</button>
       </view>
       <view class="btn_wrap">
         <view class="progress" style="height: {{pregressDone}}"></view>
-        <button class="btn" bind:touchstart="remember">记得</button>
+        <button class="btn" bind:touchstart="remember">{{textRightBtn}}</button>
       </view>
     </view>
   </view>
