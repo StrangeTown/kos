@@ -1,0 +1,172 @@
+/* pages/training/training.wxss */
+.training {
+  height: 100vh;
+  background-color: #F6CE2A;
+}
+.training .progress_bar {
+  height: 6rpx;
+  background-color: rgb(248, 211, 62);
+}
+.training .progress {
+  height: 6rpx;
+  width: 0%;
+  background-color: rgb(221, 184, 36);
+  transition: width 0.2s;
+}
+/* .training .main {
+  padding: 50rpx;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+} */
+.training .main .tip {
+  font-size: 50rpx;
+  color: #8f620f;
+  text-align: center;
+}
+.training .main .tip_wrap .tip_tip {
+  font-size: 16rpx;
+  margin-top: 18rpx;
+  text-align: center;
+  color: #f0b344;
+}
+.training .main .answer {
+  display: flex;
+  flex-direction: column;
+}
+.training .main .answer .value {
+  font-weight: bold;
+  font-size: 46rpx;
+  text-align: center;
+  color: #8f620f;
+}
+.training .main .answer .btns {
+  display: flex;
+  justify-content: center;
+  margin-top: 50rpx;
+}
+.training .main .answer .btns .btn.button-hover {
+  box-shadow: 3px 3px 8px -2px rgba(168,120,25,1);
+  background-color: rgb(236, 161, 32);
+}
+.training .main .answer .btns .btn.no {
+  color: rgb(245, 245, 245);
+}
+.training .main .answer .btns .btn {
+  width: 150px;
+  background-color: #F6AB25;
+  color: #ffffff;
+  font-weight: normal;
+  box-shadow: 6px 6px 14px -2px rgba(168,120,25,1);
+}
+.training .main .answer .btns .btn + .btn {
+  margin-left: 30rpx;
+}
+
+.training .preview {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #F6CE2A;
+}
+.training .preview .preview_main {
+  height: 100vh;
+  padding: 40rpx 60rpx 160rpx;
+  overflow: scroll;
+  box-sizing: border-box;
+}
+.training .preview .preview_item {
+  margin-left: 10rpx;
+  background-color: #F6AB25;
+  padding: 16rpx 30rpx;
+  border-radius: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #8f620f;
+}
+.training .preview_item + .preview_item {
+  margin-top: 50rpx;
+}
+.training .preview .preview_item .en {
+  font-size: 32rpx;
+}
+.training .preview .preview_item .cn {
+  font-size: 26rpx;
+  margin-top: 6rpx;
+}
+.training .preview .preview_ready {
+  position: fixed;
+  width: 100vw;
+  height: 120rpx;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+}
+.training .preview .preview_ready .ready_btn {
+  background-color: #F6AB25;
+  color: #ffffff;
+  box-shadow: 6px 6px 14px -2px rgba(168,120,25,1);
+}
+
+/* 2020 05 31 */
+.scentence_content {
+  height: calc(100vh - 400rpx);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #8f620f;
+  padding: 0 10rpx;
+  text-align: center;
+}
+.scentence_content .zh {
+  margin-top: 10rpx;
+  color: #8f620f;
+  font-size: 42rpx;
+}
+.scentence_content .en {
+  color: #8f620f15;
+}
+.btns {
+  height: 400rpx;
+  display: flex;
+}
+.btns .btn_wrap {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F6AB25;
+  color: #ffffff;
+  box-shadow: 6px 6px 14px -2px rgba(168,120,25,1);
+  position: relative;
+}
+.btn_wrap .progress {
+  position: absolute;
+  z-index: 10;
+  height: 0;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #8f620f31;
+  transition: height 0.3s;
+}
+
+.btn {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
