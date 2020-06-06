@@ -1,22 +1,26 @@
 <!--pages/training/training.wxml-->
 <view class="training">
-  <!-- <view class="progress_bar">
-    <view class="progress" style="width: {{progressWidth}};"></view>
-  </view> -->
+
+  <!-- Preview -->
   <view class="preview" wx:if="{{previewDisplay}}">
     <view class="preview_main">
+      <view class="placeholder" wx:if="{{!scentences.length}}">
+        <view class="ph_item ph_{{index}}" wx:for="{{5}}"></view>
+      </view>
       <view class="preview_item" wx:for="{{scentences}}">
         <view class="en">{{item.english}}</view>
         <view class="cn">{{item.chinese}}</view>
       </view>
     </view>
-    <view class="preview_ready">
+    <view class="preview_ready" wx:if="{{scentences.length}}">
       <button class="ready_btn" bind:tap="handleReadyClick">Ready</button>
     </view>
   </view>
+
+  <!-- Main -->
   <view class="main" wx:else>
-    <view class="scentence_content">
-      <view class="en">{{scentences[activeIndex]['english']}}</view>
+    <view class="scentence_content" bind:touchstart="lightEn" bind:touchend="darkEn">
+      <view class="en {{enStateClass}}">{{scentences[activeIndex]['english']}}</view>
       <view class="zh">{{scentences[activeIndex]['chinese']}}</view>
     </view>
     <view class="btns">
@@ -29,17 +33,5 @@
         <button class="btn" bind:touchstart="remember">记得</button>
       </view>
     </view>
-
-    <!-- <view class="tip_wrap" wx:if="{{!answerDisplay}}" bind:tap="showAnswer">
-      <view class="tip">{{scentences[activeIndex]['chinese']}}</view>
-      <view class="tip_tip">背出对应的英文，点击查看答案</view>
-    </view>
-    <view class="answer" wx:if="{{answerDisplay}}">
-      <view class="value">{{scentences[activeIndex]['english']}}</view>
-      <view class="btns">
-        <button class="btn yes" hover-start-time="0" hover-class="button-hover" bind:touchstart="remember">记得</button>
-        <button class="btn no" hover-start-time="0" hover-class="button-hover" bind:touchstart="forget">忘了</button>
-      </view>
-    </view> -->
   </view>
 </view>

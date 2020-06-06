@@ -10,10 +10,10 @@ Page({
   data: {
     scentences: [],
     activeIndex: 0,
-    answerDisplay: false,
     pregressLeft: '0',
     pregressDone: '0',
-    previewDisplay: true
+    previewDisplay: true,
+    enStateClass: ''
   },
 
   /**
@@ -120,11 +120,6 @@ Page({
       }
     })
   },
-  showAnswer: function() {
-    this.setData({
-      answerDisplay: true
-    })
-  },
   setProgress(index) {
     const percentage = (index + 1) / this.data.scentences.length
     // const val = (percentage * 100).toFixed(2)
@@ -138,8 +133,7 @@ Page({
     const hasMore = index < this.data.scentences.length - 1
     if (hasMore) {
       this.setData({
-        activeIndex: index + 1,
-        answerDisplay: false
+        activeIndex: index + 1
       })
     } else {
       wx.showToast({
@@ -152,8 +146,7 @@ Page({
   },
   forget: function() {
     this.setData({
-      activeIndex: 0,
-      answerDisplay: false
+      activeIndex: 0
     })
     this.setProgress(-1)
   },
@@ -161,5 +154,11 @@ Page({
     this.setData({
       previewDisplay: false
     })
-  }
+  },
+  lightEn () {
+    this.setData({ enStateClass: 'active' })
+  },
+  darkEn () {
+    this.setData({ enStateClass: '' })
+  },
 })
