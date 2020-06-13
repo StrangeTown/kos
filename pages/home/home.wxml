@@ -2,22 +2,13 @@
 <view class="home">
   <view class="title">Enjoy the Sentences</view>
   <view class="list">
-    <view class="item week">
-      <button class="btn" hover-start-time="0" hover-class="button-hover" bind:touchstart="clickWeek">
-        <view class="btn_img"></view>
-      </button>
+    <view class="item week" bind:touchstart="clickWeek">
       <view class="item_name">挑战一周的内容</view>
     </view>
-    <view class="item month">
-      <button class="btn" hover-start-time="0" hover-class="button-hover" bind:touchstart="clickMonth">
-        <view class="btn_img"></view>
-      </button>
+    <view class="item month" bind:touchstart="clickMonth">
       <view class="item_name">挑战一个月的内容</view>
     </view>
-    <view class="item all">
-      <button class="btn" hover-start-time="0" hover-class="button-hover" bind:touchstart="clickYear">
-        <view class="btn_img"></view>
-      </button>
+    <view class="item all" bind:touchstart="clickYear">
       <view class="item_name">挑战一年的内容</view>
     </view>
   </view>

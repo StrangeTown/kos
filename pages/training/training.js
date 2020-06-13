@@ -126,8 +126,8 @@ Page({
     const percentage = (index + 1) / this.data.scentences.length
 
     this.setData({
-      pregressLeft: `${(1 - percentage) * 400}rpx`,
-      pregressDone: `${percentage * 400}rpx`
+      pregressLeft: `${(1 - percentage) * 30}vh`,
+      pregressDone: `${percentage * 30}vh`
     })
   },
   remember: function() {
