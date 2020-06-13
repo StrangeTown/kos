@@ -12,8 +12,8 @@
         <view class="cn">{{item.chinese}}</view>
       </view>
     </view>
-    <view class="preview_ready" wx:if="{{scentences.length}}">
-      <button class="ready_btn" bind:tap="handleReadyClick">Ready</button>
+    <view class="preview_ready" wx:if="{{scentences.length}}" bind:tap="handleReadyClick">
+      Ready
     </view>
   </view>
 

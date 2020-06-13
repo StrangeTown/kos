@@ -8,10 +8,12 @@
   width: 100vw;
   height: 100vh;
   background-color: #F6CE2A;
+  display: flex;
+  flex-direction: column;
 }
 .training .preview .preview_main {
-  height: 100vh;
-  padding: 40rpx 60rpx 160rpx;
+  height: 70vh;
+  padding: 40rpx 60rpx;
   overflow: scroll;
   box-sizing: border-box;
 }
@@ -38,17 +40,16 @@
 .training .preview .preview_ready {
   position: fixed;
   width: 100vw;
-  height: 120rpx;
+  height: 30vh;
   bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   left: 0;
-}
-.training .preview .preview_ready .ready_btn {
   background-color: #F6AB25;
-  color: #ffffff;
   box-shadow: 6px 6px 14px -2px rgba(168,120,25,1);
+  color: #ffffff;
+  font-size: 40rpx;
 }
 
 .preview .placeholder .ph_item{
