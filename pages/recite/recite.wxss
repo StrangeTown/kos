@@ -1,0 +1,40 @@
+/* pages/recite/recite.wxss */
+
+.recite_container {
+  padding: 20rpx 20rpx;
+}
+.recite_container .title {
+  text-align: center;
+}
+.recite_container .main {
+  margin-top: 20rpx;
+}
+
+.recite_container .item {
+  margin-bottom: 20rpx;
+}
+.recite_container .item.active .label {
+  color: #383838;
+}
+.recite_container .item .value {
+  color: #f7eee2;
+}
+.recite_container .item .label {
+  color: #f7eee2;
+}
+.recite_container .actions {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  height: 120rpx;
+}
+.recite_container .actions .action {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+}

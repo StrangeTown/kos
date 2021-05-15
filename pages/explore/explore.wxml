@@ -1,0 +1,18 @@
+<!--pages/explore.wxml-->
+<!-- <text>pages/explore.wxml</text> -->
+<view class="explore_container">
+  <view class="section">
+    <view class="title">口语</view>
+    <view class="items">
+      <navigator class="item" url='../recite/recite'>背记</navigator>
+      <navigator class="item" url='../review/review'>回顾</navigator>
+      <navigator class="item" url='../dialog/dialog'>对话</navigator>
+    </view>
+  </view>
+  <view class="section">
+    <view class="title">听力</view>
+    <view class="items">
+      <navigator class="item" url='../recite/recite'>影视</navigator>
+    </view>
+  </view>
+</view>

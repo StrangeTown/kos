@@ -1,0 +1,16 @@
+<!--pages/dialogbox/dialogbox.wxml-->
+<!-- <text>pages/dialogbox/dialogbox.wxml</text> -->
+<view class="box_container">
+  <view class="main">
+    <view class="tip" wx:if="{{!sentList.length}}">说出英文并点击发送</view>
+    <view class="item {{item.side}}" wx:for="{{sentList}}">
+      <view class='item_main'>{{item.value}}</view>
+    </view>
+  </view>
+  <view class="action">
+    <view class="next {{nextItem.side}}">
+      <view class="next_main">{{nextItem.label}}</view>
+    </view>
+    <button class="send_btn" bind:tap="sendMsg">发送</button>
+  </view>
+</view>

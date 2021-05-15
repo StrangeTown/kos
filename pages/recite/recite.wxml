@@ -1,0 +1,17 @@
+<!--pages/recite/recite.wxml-->
+<!-- <text>pages/recite/recite.wxml</text> -->
+<view class="recite_container">
+  <view class="title">根据高亮提示大声说出原文</view>
+  <view class="main">
+    <view class="items">
+      <view class="item {{index === activeIndex ? 'active' : ''}}" wx:for="{{sentences}}">
+        <view class='label'>{{item.label}}</view>
+        <view class='value'>{{item.value}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="actions">
+    <view class="action" bind:tap="slow">慢</view>
+    <view class="action" bind:tap="fast">快</view>
+  </view>
+</view>

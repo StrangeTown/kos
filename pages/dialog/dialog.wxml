@@ -1,0 +1,11 @@
+<!--pages/dialog/dialog.wxml-->
+<!-- <text>pages/dialog/dialog.wxml</text> -->
+<view class="dialog_container">
+  <view class="list">
+    <navigator class="item" url="../dialogbox/dialogbox?id={{item._id}}" wx:for="{{dialogs}}">
+      <view>
+        {{item.source}}
+      </view>
+    </navigator>
+  </view>
+</view>

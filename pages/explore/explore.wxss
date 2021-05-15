@@ -1,0 +1,23 @@
+/* pages/explore.wxss */
+
+.explore_container {
+  padding: 10rpx 30rpx;
+}
+.explore_container .section {
+  margin-bottom: 50rpx;
+}
+.explore_container .items {
+  margin-top: 20rpx;
+  display: flex;
+  overflow-x: scroll;
+  width: 100%;
+}
+.explore_container .item {
+  margin-right: 20rpx;
+  width: 240rpx;
+  height: 240rpx;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

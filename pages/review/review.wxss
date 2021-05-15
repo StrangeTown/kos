@@ -1,0 +1,15 @@
+/* pages/review/review.wxss */
+.review_container {
+  padding: 20rpx 30rpx;
+}
+
+.review_container .item {
+  margin-bottom: 20rpx;
+}
+.review_container .item .label {
+  font-size: 30rpx;
+  color: rgb(124, 124, 124);
+}
+.review_container .item .value {
+  font-size: 40rpx;
+}

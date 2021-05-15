@@ -1,0 +1,37 @@
+/* pages/dialogbox/dialogbox.wxss */
+.box_container {
+  padding: 20rpx 30rpx;
+}
+
+.box_container .main .item{
+  display: flex;
+  margin-bottom: 10rpx;
+}
+.box_container .main .item.left {
+  justify-content: flex-start;
+}
+.box_container .main .item.right {
+  justify-content: flex-end;
+}
+.box_container .main .item .item_main {
+  max-width: 80%;
+}
+
+.box_container .action {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.box_container .action .next {
+  display: flex;
+}
+.box_container .action .next.left {
+  justify-content: flex-start;
+}
+.box_container .action .next.right {
+  justify-content: flex-end;
+}
+.box_container .action .next .next_main {
+  max-width: 80%;
+}

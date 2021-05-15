@@ -1,9 +1,14 @@
 {
   "pages": [
+    "pages/explore/explore",
     "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/training/training"
+    "pages/training/training",
+    "pages/recite/recite",
+    "pages/review/review",
+    "pages/dialog/dialog",
+    "pages/dialogbox/dialogbox"
   ],
   "window": {
     "backgroundTextStyle": "light",
