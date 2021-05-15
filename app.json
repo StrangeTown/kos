@@ -8,7 +8,9 @@
     "pages/recite/recite",
     "pages/review/review",
     "pages/dialog/dialog",
-    "pages/dialogbox/dialogbox"
+    "pages/dialogbox/dialogbox",
+    "pages/listenlist/listenlist",
+    "pages/listendetail/listendetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

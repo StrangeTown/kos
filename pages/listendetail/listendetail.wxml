@@ -1,0 +1,16 @@
+<!--pages/listendetail/listendetail.wxml-->
+<!-- <text>pages/listendetail/listendetail.wxml</text> -->
+<view class="audio_container">
+  <view class="main">
+    <button class="play_btn" bind:tap="togglePaly">
+      {{isPlaying ? 'Pause' : 'Play'}}
+    </button>
+  </view>
+  <view class="actions">
+    <view class="speed">
+      <button class="speed_item" bind:tap="updateSpeed" data-val='{{0.7}}'>0.7</button>
+      <button class="speed_item" bind:tap="updateSpeed" data-val='{{1}}'>1</button>
+      <button class="speed_item" bind:tap="updateSpeed" data-val='{{1.7}}'>1.7</button>
+    </view>
+  </view>
+</view>

@@ -12,7 +12,7 @@
   <view class="section">
     <view class="title">听力</view>
     <view class="items">
-      <navigator class="item" url='../recite/recite'>影视</navigator>
+      <navigator class="item" url='../listenlist/listenlist?type=voa_special'>最新</navigator>
     </view>
   </view>
 </view>

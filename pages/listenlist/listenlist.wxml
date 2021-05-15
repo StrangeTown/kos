@@ -1,0 +1,12 @@
+<!--pages/listenlist/listenlist.wxml-->
+<!-- <text>pages/listenlist/listenlist.wxml</text> -->
+<view class="listenlist_ocntainer">
+  <view class='list'>
+    <navigator class="item" url="../listendetail/listendetail?id={{item._id}}" wx:for="{{list}}">
+      <view>
+        {{item.label}}
+      </view>
+    </navigator>
+    <!-- <view class="item" wx:for="{{list}}" wx:key="label">{{item.label}}</view> -->
+  </view>
+</view>
