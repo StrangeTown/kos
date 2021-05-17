@@ -2,25 +2,31 @@
 
 .recite_container {
   padding: 20rpx 20rpx;
+  background-color: #1E2227;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 .recite_container .title {
   text-align: center;
+  color: #636363;
+  font-size: 30rpx;
 }
 .recite_container .main {
-  margin-top: 20rpx;
+  margin-top: 40rpx;
 }
 
 .recite_container .item {
-  margin-bottom: 20rpx;
+  margin-bottom: 28rpx;
 }
 .recite_container .item.active .label {
-  color: #383838;
+  color: #fff;
+  font-weight: bold;
 }
 .recite_container .item .value {
-  color: #f7eee2;
+  color: #282E3C;
 }
 .recite_container .item .label {
-  color: #f7eee2;
+  color: #282E3C;
 }
 .recite_container .actions {
   position: fixed;

@@ -4,15 +4,37 @@
   <view class="section">
     <view class="title">口语</view>
     <view class="items">
-      <navigator class="item" url='../recite/recite'>背记</navigator>
-      <navigator class="item" url='../review/review'>回顾</navigator>
-      <navigator class="item" url='../dialog/dialog'>对话</navigator>
+      <navigator class="item recite" url='../recite/recite'>
+        <view class="icon_wrap">
+          <image class="icon" src="../../assets/images/recite.svg" />
+        </view>
+        <view class="label">背记</view>
+      </navigator>
+
+      <navigator class="item review" url='../review/review'>
+        <view class="icon_wrap">
+          <image class="icon" src="../../assets/images/list.svg" />
+        </view>
+        <view class="label">回顾</view>
+      </navigator>
+
+      <navigator class="item dialog" url='../dialog/dialog'>
+        <view class="icon_wrap">
+          <image class="icon" src="../../assets/images/dialog.svg" />
+        </view>
+        <view class="label">对话</view>
+      </navigator>
     </view>
   </view>
   <view class="section">
     <view class="title">听力</view>
     <view class="items">
-      <navigator class="item" url='../listenlist/listenlist?type=voa_special'>最新</navigator>
+      <navigator class="item recent" url='../listenlist/listenlist?type=voa_special'>
+        <view class="icon_wrap">
+          <image class="icon" src="../../assets/images/recent.svg" />
+        </view>
+        <view class="label">最新</view>
+      </navigator>
     </view>
   </view>
 </view>

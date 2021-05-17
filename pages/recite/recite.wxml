@@ -11,7 +11,7 @@
     </view>
   </view>
   <view class="actions">
-    <view class="action" bind:tap="slow">慢</view>
-    <view class="action" bind:tap="fast">快</view>
+    <button class="action" bind:tap="slow">x 0.75</button>
+    <button class="action" bind:tap="fast">x 1.5</button>
   </view>
 </view>

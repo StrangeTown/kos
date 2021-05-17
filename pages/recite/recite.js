@@ -16,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     this.fetchData()
+    this.setTitle('背记')
   },
 
   /**
@@ -79,6 +80,13 @@ Page({
     this.setData({
       reciteInterval: newInterval
     })
+  },
+  setTitle: function(title) {
+    if (title) {
+      wx.setNavigationBarTitle({
+        title
+      })
+    }
   },
   fetchData: function() {
     const db = wx.cloud.database()
