@@ -68,19 +68,22 @@ Page({
   },
   fetchData: function() {
     const db = wx.cloud.database()
-    db.collection('sentences').limit(100).get({
-      success: res => {
-        this.setData({
-          sentences: res.data
-        })
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '查询记录失败'
-        })
-        console.error('[数据库] [查询记录] 失败：', err)
-      }
-    })
+    db.collection('sentences')
+      .orderBy('created_at', 'desc')
+      .limit(100)
+      .get({
+        success: res => {
+          this.setData({
+            sentences: res.data
+          })
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '查询记录失败'
+          })
+          console.error('[数据库] [查询记录] 失败：', err)
+        }
+      })
   },
 })

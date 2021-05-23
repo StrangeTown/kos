@@ -90,21 +90,24 @@ Page({
   },
   fetchData: function() {
     const db = wx.cloud.database()
-    db.collection('sentences').limit(7).get({
-      success: res => {
-        this.setData({
-          sentences: res.data
-        })
-        this.start()
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '查询记录失败'
-        })
-        console.error('[数据库] [查询记录] 失败：', err)
-      }
-    })
+    db.collection('sentences')
+      .orderBy('created_at', 'desc')
+      .limit(7)
+      .get({
+        success: res => {
+          this.setData({
+            sentences: res.data
+          })
+          this.start()
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '查询记录失败'
+          })
+          console.error('[数据库] [查询记录] 失败：', err)
+        }
+      })
   },
   slow: function() {
     this.setData({
