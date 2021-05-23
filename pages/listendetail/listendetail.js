@@ -19,6 +19,9 @@ Page({
   onLoad: function (options) {
     const id = options.id
     this.fetchData({ id })
+    wx.setNavigationBarTitle({
+      title: '听力'
+    })
   },
 
   /**

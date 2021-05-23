@@ -1,11 +1,21 @@
 /* pages/dialogbox/dialogbox.wxss */
 .box_container {
-  padding: 20rpx 30rpx;
+  padding: 20rpx 40rpx;
+  background-color: #1E2227;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
+.box_container .main .tip {
+  text-align: center;
+  margin-top: 120rpx;
+  color: #738294;
+  font-weight: lighter;
+  font-size: 50rpx;
+}
 .box_container .main .item{
   display: flex;
-  margin-bottom: 10rpx;
+  margin-bottom: 32rpx;
 }
 .box_container .main .item.left {
   justify-content: flex-start;
@@ -13,8 +23,52 @@
 .box_container .main .item.right {
   justify-content: flex-end;
 }
-.box_container .main .item .item_main {
+.box_container .item_main {
+  display: flex;
   max-width: 80%;
+}
+.box_container .item_main .avatar {
+  width: 60rpx;
+  height: 60rpx;
+  object-fit: cover;
+  border-radius: 100rpx;
+  background-color: #383f48;
+}
+.box_container .item.right .avatar {
+  margin-left: 24rpx;
+}
+.box_container .item.left .avatar {
+  margin-right: 24rpx;
+}
+.box_container .main .item .item_main .bubble {
+  flex: 1;
+  background: #d1e2f7;
+  padding: 16rpx 24rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+.box_container .item.right .triangle {
+  right: -10rpx;
+  left: auto;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 14rpx 0 14rpx 20rpx;
+  border-color: transparent transparent transparent #d1e2f7;
+}
+.box_container .item_main .triangle {
+  position: absolute;
+  left: -10rpx;
+  top: 18rpx;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 14rpx 20rpx 14rpx 0;
+  border-color: transparent #d1e2f7 transparent transparent;
+}
+.box_container .main .item_main .text {
+  font-size: 28rpx;
+  color: #607D8B;
 }
 
 .box_container .action {
@@ -25,6 +79,8 @@
 }
 .box_container .action .next {
   display: flex;
+  background-color: #dfecf7;
+  padding: 20rpx 40rpx;
 }
 .box_container .action .next.left {
   justify-content: flex-start;
@@ -34,4 +90,14 @@
 }
 .box_container .action .next .next_main {
   max-width: 80%;
+  font-size: 32rpx;
+  color: #607D8B;
+}
+
+.box_container .action .send_btn {
+  width: 100%;
+  border-radius: 0;
+  background-color: #505a67;
+  color: aliceblue;
+  font-size: 40rpx;
 }

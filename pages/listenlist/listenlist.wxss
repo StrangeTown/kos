@@ -1,1 +1,15 @@
 /* pages/listenlist/listenlist.wxss */
+.listenlist_ocntainer {
+  padding: 20rpx 30rpx;
+  background-color: #1E2227;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.listenlist_ocntainer .item {
+  background-color: #3b434d;
+  padding: 20rpx;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10rpx;
+}

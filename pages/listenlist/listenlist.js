@@ -14,6 +14,9 @@ Page({
   onLoad: function (options) {
     const type = options.type
     this.fetchData({ type })
+    wx.setNavigationBarTitle({
+      title: '听力列表'
+    })
   },
 
   /**

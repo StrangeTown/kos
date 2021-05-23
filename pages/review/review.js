@@ -13,6 +13,9 @@ Page({
    */
   onLoad: function (options) {
     this.fetchData()
+    wx.setNavigationBarTitle({
+      title: '回顾'
+    })
   },
 
   /**

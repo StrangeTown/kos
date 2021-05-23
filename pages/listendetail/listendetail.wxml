@@ -1,16 +1,22 @@
 <!--pages/listendetail/listendetail.wxml-->
 <!-- <text>pages/listendetail/listendetail.wxml</text> -->
 <view class="audio_container">
-  <view class="main">
-    <button class="play_btn" bind:tap="togglePaly">
-      {{isPlaying ? 'Pause' : 'Play'}}
-    </button>
+  <view class='ocean'>
+    <view class="wave"></view>
+    <view class="wave"></view>
   </view>
   <view class="actions">
     <view class="speed">
-      <button class="speed_item" bind:tap="updateSpeed" data-val='{{0.7}}'>0.7</button>
-      <button class="speed_item" bind:tap="updateSpeed" data-val='{{1}}'>1</button>
-      <button class="speed_item" bind:tap="updateSpeed" data-val='{{1.7}}'>1.7</button>
+      <button class="speed_item {{playbackRate === 0.7 && 'active'}}" bind:tap="updateSpeed" data-val='{{0.7}}'>x 0.7</button>
+      <button class="speed_item {{playbackRate === 1 && 'active'}}" bind:tap="updateSpeed" data-val='{{1}}'>x 1</button>
+      <button class="speed_item {{playbackRate === 1.7 && 'active'}}" bind:tap="updateSpeed" data-val='{{1.7}}'>x 1.7</button>
+    </view>
+    <!-- <button class="play_btn" bind:tap="togglePaly">
+      {{isPlaying ? 'Pause' : 'Play'}}
+    </button> -->
+    <view class="play_btn" bind:tap="togglePaly">
+      <image wx:if="{{isPlaying}}" class="btn pause" src="../../assets/images/pause.svg"/>
+      <image wx:else class="btn play" src="../../assets/images/play.svg"/>
     </view>
   </view>
 </view>

@@ -4,11 +4,18 @@
   <view class="main">
     <view class="tip" wx:if="{{!sentList.length}}">说出英文并点击发送</view>
     <view class="item {{item.side}}" wx:for="{{sentList}}">
-      <view class='item_main'>{{item.value}}</view>
+      <view class='item_main'>
+        <image wx:if="{{item.side === 'left'}}" class="avatar" src="{{item.avatar}}"/>
+        <view class="bubble">
+          <view class="triangle"></view>
+          <view class="text">{{item.value}}</view>
+        </view>
+        <image wx:if="{{item.side === 'right'}}" class="avatar" src="{{item.avatar}}"/>
+      </view>
     </view>
   </view>
   <view class="action">
-    <view class="next {{nextItem.side}}">
+    <view class="next {{nextItem.side}}" wx:if="{{nextItem.label}}">
       <view class="next_main">{{nextItem.label}}</view>
     </view>
     <button class="send_btn" bind:tap="sendMsg">发送</button>

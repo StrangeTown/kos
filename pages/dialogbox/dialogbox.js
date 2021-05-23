@@ -19,6 +19,9 @@ Page({
    */
   onLoad: function (options) {
     this.fetchData({ id: options.id })
+    wx.setNavigationBarTitle({
+      title: '对话'
+    })
   },
 
   /**
@@ -96,9 +99,13 @@ Page({
         const dialogData = get(data, '[0]')
         const list = get(dialogData, 'content', [])
         const source = get(dialogData, 'source', '')
+        const side = get(dialogData, 'side', {})
+        list.forEach(item => {
+          item.avatar = side[item.side].avatar
+        })
         this.setData({
           list,
-          source
+          source,
         })
         this.initList()
       },
