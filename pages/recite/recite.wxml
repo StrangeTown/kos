@@ -1,15 +1,27 @@
 <!--pages/recite/recite.wxml-->
 <!-- <text>pages/recite/recite.wxml</text> -->
 <view class="recite_container">
+
+  <view class="loading_layer" wx:if="{{loading}}">
+    <image class="loading_icon" src="../../assets/images/loading.svg" />
+    <view class="loading_tip">利用碎片时间背几句口语吧</view>
+  </view>
+
   <view class="title">根据高亮提示大声说出原文</view>
   <view class="main">
     <view class="items">
-      <view class="item {{index === activeIndex ? 'active' : ''}}" wx:for="{{sentences}}">
-        <view class='label'>{{item.label}}</view>
-        <view class='value'>{{item.value}}</view>
+      <view class="item {{index === activeIndex ? 'active' : ''}}" wx:for="{{sentences}}" wx:key="value">
+        <view class="content">
+          <view class='label'>{{item.label}}</view>
+          <view class='value'>{{item.value}}</view>
+        </view>
+        <view class="close" bind:touchend="deleteItem" data-val="{{index}}">
+          <image class="close_icon" src="../../assets/images/close.svg" />
+        </view>
       </view>
     </view>
   </view>
+
   <view class="actions">
     <button class="action" bind:tap="slow">x 0.75</button>
     <button class="action" bind:tap="fast">x 1.5</button>

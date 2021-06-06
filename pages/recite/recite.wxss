@@ -17,6 +17,25 @@
 
 .recite_container .item {
   margin-bottom: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.recite_container .item .content {
+  flex: 1;
+  padding: 0 20rpx 0 60rpx;
+  text-align: center;
+}
+.recite_container .item .close {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recite_container .item .close_icon {
+  width: 24rpx;
+  height: 24rpx;
 }
 .recite_container .item.active .label {
   color: #fff;
@@ -44,4 +63,38 @@
   align-items: center;
   justify-content: center;
   background-color: #ddd;
+}
+.recite_container .loading_layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1E2227;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+@keyframes spin {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+}
+.recite_container .loading_layer .loading_icon {
+  width: 50rpx;
+  height: 50rpx;
+  animation-name: spin;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+.recite_container .loading_layer .loading_tip {
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  font-weight: bold;
 }

@@ -8,7 +8,7 @@
         <view class="icon_wrap">
           <image class="icon" src="../../assets/images/recite.svg" />
         </view>
-        <view class="label">背记</view>
+        <view class="label">背记7句</view>
       </navigator>
 
       <navigator class="item review" url='../review/review'>
@@ -22,7 +22,7 @@
         <view class="icon_wrap">
           <image class="icon" src="../../assets/images/dialog.svg" />
         </view>
-        <view class="label">对话</view>
+        <view class="label">模拟对话</view>
       </navigator>
     </view>
   </view>
