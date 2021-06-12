@@ -1,10 +1,9 @@
-<!--pages/recite/recite.wxml-->
+<!-- pages/recite/recite.wxml -->
 <!-- <text>pages/recite/recite.wxml</text> -->
 <view class="recite_container">
-
   <view class="loading_layer" wx:if="{{loading}}">
-    <image class="loading_icon" src="../../assets/images/loading.svg" />
-    <view class="loading_tip">利用碎片时间背几句口语吧</view>
+    <image class="loading_icon" src="../../assets/images/loading_1.svg" />
+    <view class="loading_tip">{{loadingTip}}</view>
   </view>
 
   <view class="title">根据高亮提示大声说出原文</view>
@@ -21,9 +20,15 @@
       </view>
     </view>
   </view>
-
   <view class="actions">
     <button class="action" bind:tap="slow">x 0.75</button>
     <button class="action" bind:tap="fast">x 1.5</button>
+  </view>
+
+  <view class="bottom_box">
+    <view class="time">{{timeStr}}</view>
+    <view class="progress_container">
+      <view class="progress_item" wx:for="{{progress}}"></view>
+    </view>
   </view>
 </view>

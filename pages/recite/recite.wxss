@@ -76,6 +76,7 @@
   align-items: center;
   justify-content: center;
   color: #fff;
+  z-index: 10;
 }
 @keyframes spin {
   from {
@@ -96,5 +97,36 @@
 .recite_container .loading_layer .loading_tip {
   margin-top: 50rpx;
   font-size: 30rpx;
-  font-weight: bold;
+  font-weight: 200;
+}
+
+.recite_container .bottom_box {
+  position: fixed;
+  left: 0;
+  bottom: 10rpx;
+  width: 100vw;
+}
+.recite_container .time {
+  display: flex;
+  justify-content: center;
+  color: #7d7d7d;
+  font-size: 30rpx;
+}
+.recite_container .progress_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+}
+.recite_container .progress_container .progress_item {
+  margin-top: 8rpx;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 3rpx;
+  background-color: #7d7d7d;
+}
+.recite_container .progress_container .progress_item + .progress_item {
+  margin-left: 3rpx;
 }
