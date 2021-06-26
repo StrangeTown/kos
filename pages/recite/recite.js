@@ -22,6 +22,7 @@ Page({
     progress: Array(7).fill(1),
     startTime: null,
     timeStr: '',
+    hinting: false
   },
 
   /**
@@ -214,5 +215,11 @@ Page({
     const seconds = intSeconds - (minutes * 60)
     const secondsStr = seconds < 10 ? `0${seconds}` : seconds
     this.setData({ timeStr: `${minutes}:${secondsStr}` })
+  },
+  toggleHint: function() {
+    const hintState = this.data.hinting
+    this.setData({
+      hinting: !hintState
+    })
   }
 })

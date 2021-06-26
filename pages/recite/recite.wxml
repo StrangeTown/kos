@@ -8,8 +8,12 @@
 
   <view class="title">根据高亮提示大声说出原文</view>
   <view class="main">
-    <view class="items">
-      <view class="item {{index === activeIndex ? 'active' : ''}}" wx:for="{{sentences}}" wx:key="value">
+    <view class="items {{hinting ? 'hinting' : ''}}">
+      <view
+        class="item {{index === activeIndex ? 'active' : ''}}"
+        wx:for="{{sentences}}"
+        wx:key="value"
+      >
         <view class="content">
           <view class='label'>{{item.label}}</view>
           <view class='value'>{{item.value}}</view>
@@ -19,6 +23,7 @@
         </view>
       </view>
     </view>
+    <view class="hint_btn" bind:tap="toggleHint">Hint</view>
   </view>
   <view class="actions">
     <button class="action" bind:tap="slow">x 0.75</button>
