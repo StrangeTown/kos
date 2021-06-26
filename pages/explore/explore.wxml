@@ -2,7 +2,7 @@
 <!-- <text>pages/explore.wxml</text> -->
 <view class="explore_container">
   <view class="section">
-    <view class="title">口语</view>
+    <!-- <view class="title">口语</view> -->
     <view class="items">
       <navigator class="item recite" url='../recite/recite'>
         <view class="icon_wrap">
@@ -15,7 +15,7 @@
         <view class="icon_wrap">
           <image class="icon" src="../../assets/images/list.svg" />
         </view>
-        <view class="label">回顾</view>
+        <view class="label">口语列表</view>
       </navigator>
 
       <navigator class="item dialog" url='../dialog/dialog'>
@@ -26,7 +26,18 @@
       </navigator>
     </view>
   </view>
-  <view class="section">
+  <!-- <view class="section">
+    <view class="title">词汇</view>
+    <view class="items">
+      <navigator class="item recent" url='../listenlist/listenlist?type=voa_special'>
+        <view class="icon_wrap">
+          <image class="icon" src="../../assets/images/sentence.svg" />
+        </view>
+        <view class="label">句中词</view>
+      </navigator>
+    </view>
+  </view> -->
+  <!-- <view class="section">
     <view class="title">听力</view>
     <view class="items">
       <navigator class="item recent" url='../listenlist/listenlist?type=voa_special'>
@@ -36,5 +47,9 @@
         <view class="label">最新</view>
       </navigator>
     </view>
+  </view> -->
+  <view class='contact_us_wrap'>
+    <!-- <contact-button></contact-button> -->
+    <button class='contact_us' open-type="contact" bindcontact="handleContact">联系开发者</button>
   </view>
 </view>

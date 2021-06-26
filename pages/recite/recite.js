@@ -1,7 +1,8 @@
 // pages/recite/recite.js
 const loadingTips = [
   '利用碎片时间背几句口语吧',
-  '删除记熟的条目，载入新的口语'
+  '删除记熟的条目，载入新的口语',
+  '使用夸张的语气，给大脑更丰富的刺激'
 ]
 let timeInterval = null
 

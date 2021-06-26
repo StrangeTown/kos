@@ -9,7 +9,7 @@
 }
 
 .explore_container .section {
-  margin-bottom: 100rpx;
+  margin-bottom: 80rpx;
 }
 .explore_container .section .title {
   color: #d2d2d2;
@@ -54,4 +54,18 @@
   margin-top: 16rpx;
   color: #d2d2d2;
   font-size: 24rpx;
+}
+
+.explore_container .contact_us_wrap {
+  position: fixed;
+  bottom: 20rpx;
+  left: 0;
+  width: 100%;
+  display: flex;
+}
+.explore_container .contact_us {
+  background: transparent;
+  color: #9E9E9E;
+  font-size: 26rpx;
+  text-decoration: underline;
 }
