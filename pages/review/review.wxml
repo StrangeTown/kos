@@ -7,4 +7,8 @@
       <view class="value">{{item.value}}</view>
     </view>
   </view>
+
+  <navigator class="recite_nav" url='../recite/recite'>
+    <image class="icon" src="../../assets/images/recite.svg" />
+  </navigator>
 </view>

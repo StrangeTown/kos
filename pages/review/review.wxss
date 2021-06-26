@@ -17,3 +17,20 @@
   font-size: 40rpx;
   color: #fff;
 }
+.recite_nav {
+  position: fixed;
+  bottom: 30rpx;
+  right: 30rpx;
+  background-color: #4a5563;
+  border-radius: 100rpx;
+  width: 100rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px 4px black;
+}
+.recite_nav .icon {
+  width: 50rpx;
+  height: 50rpx;
+}

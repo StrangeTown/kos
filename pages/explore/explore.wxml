@@ -1,6 +1,16 @@
 <!--pages/explore.wxml-->
 <!-- <text>pages/explore.wxml</text> -->
 <view class="explore_container">
+  <view class="head" url='../review/review'>
+    <view class="sentence">
+      <text class="sentence_val">{{headText || ''}}</text>
+      <view class="how_to_say">用英语怎么说</view>
+    </view>
+    <navigator class="list_nav" url='../review/review'>
+      <image class="icon" src="../../assets/images/list.svg" />
+    </navigator>
+  </view>
+
   <view class="section">
     <!-- <view class="title">口语</view> -->
     <view class="items">
@@ -11,12 +21,12 @@
         <view class="label">背记7句</view>
       </navigator>
 
-      <navigator class="item review" url='../review/review'>
+      <!-- <navigator class="item review" url='../review/review'>
         <view class="icon_wrap">
           <image class="icon" src="../../assets/images/list.svg" />
         </view>
         <view class="label">口语列表</view>
-      </navigator>
+      </navigator> -->
 
       <navigator class="item dialog" url='../dialog/dialog'>
         <view class="icon_wrap">
