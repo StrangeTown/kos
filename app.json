@@ -10,7 +10,8 @@
     "pages/dialog/dialog",
     "pages/dialogbox/dialogbox",
     "pages/listenlist/listenlist",
-    "pages/listendetail/listendetail"
+    "pages/listendetail/listendetail",
+    "pages/favourite/favourite"
   ],
   "window": {
     "backgroundTextStyle": "light",

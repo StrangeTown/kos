@@ -21,11 +21,11 @@
         <view class="label">背记7句</view>
       </navigator>
 
-      <!-- <navigator class="item review" url='../review/review'>
+      <!-- <navigator class="item review" url='../favourite/favourite'>
         <view class="icon_wrap">
           <image class="icon" src="../../assets/images/list.svg" />
         </view>
-        <view class="label">口语列表</view>
+        <view class="label">收藏</view>
       </navigator> -->
 
       <navigator class="item dialog" url='../dialog/dialog'>

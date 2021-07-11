@@ -1,13 +1,26 @@
-<!--pages/review/review.wxml-->
+<!-- pages/review/review.wxml -->
 <!-- <text>pages/review/review.wxml</text> -->
 <view class="review_container">
   <view class="items">
     <view class="item" wx:for="{{sentences}}">
-      <view class="label">{{item.label}}</view>
-      <view class="value">{{item.value}}</view>
+      <view class="content">
+        <view class="label">{{item.label}}</view>
+        <view class="value">{{item.value}}</view>
+      </view>
+      <image class="more" src="../../assets/images/more.svg"  data-id="{{item._id}}" capture-catch:tap="focus"/>
     </view>
   </view>
-
+  <view class="model" wx:if="{{modelVisible}}">
+    <view class="main">
+      <view class="model_info">
+        {{modelItem && modelItem.value}}
+      </view>
+      <view class="actions">
+        <button class="action" bind:tap="like">收藏</button>
+        <button class="action" bind:tap="close">关闭</button>
+      </view>
+    </view>
+  </view>
   <navigator class="recite_nav" url='../recite/recite'>
     <image class="icon" src="../../assets/images/recite.svg" />
   </navigator>

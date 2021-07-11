@@ -1,20 +1,27 @@
+const get = require("lodash.get")
+
 // pages/review/review.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    sentences: []
+    sentences: [],
+    modelVisible: false,
+    modelItem: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData)
     this.fetchData()
     wx.setNavigationBarTitle({
-      title: '回顾'
+      title: '列表'
     })
   },
 
@@ -86,4 +93,40 @@ Page({
         }
       })
   },
+  like: function() {
+    const sentenceId = get(this.data.modelItem, '_id')
+    if (!sentenceId) return
+
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'like',
+      // 传给云函数的参数
+      data: {
+        sentenceid: sentenceId,
+      },
+      success: (res) => {
+        const msg = get(res, 'result.msg')
+        this.setData({ modelVisible: false })
+        wx.showToast({
+          title: msg,
+          icon: 'success',
+          duration: 1000
+        })
+      },
+      fail: console.error
+    })
+  },
+  focus: function(e) {
+    const sentenceId = e.target.dataset.id
+    if (!sentenceId) return
+    
+    const modelItem = this.data.sentences.find(s => s._id === sentenceId)
+    this.setData({
+      modelItem,
+      modelVisible: true
+    })
+  },
+  close: function() {
+    this.setData({ modelVisible: false })
+  }
 })
