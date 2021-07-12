@@ -1,2 +1,9 @@
 <!--pages/favourite/favourite.wxml-->
-<text>pages/favourite/favourite.wxml</text>
+<view class="favourite_container">
+  <view class="items">
+    <view class="item" wx:for="{{sentences}}">
+      <view class='val'>{{item.value}}</view>
+      <view class='label'>{{item.label}}</view>
+    </view>
+  </view>
+</view>

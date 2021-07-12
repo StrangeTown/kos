@@ -31,9 +31,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const typeid = options.typeid
+    console.log(typeid)
+
     this.initLoadingTip()
     this.startTimeInterval()
-    this.fetchData()
+    this.fetchData({ typeid })
     this.setTitle(' ')
     setTimeout(() => {
       this.setData({ loading: false })
@@ -139,12 +142,15 @@ Page({
         }
       })
   },
-  fetchData: function() {
+  fetchData: function({ typeid }) {
     const db = wx.cloud.database()
     const fetchLimit = 7
+    const whereCondition = {}
+    if (typeid) whereCondition.type_id = typeid
 
     db.collection('sentences')
       .orderBy('created_at', 'desc')
+      .where(whereCondition)
       .limit(fetchLimit)
       .get({
         success: res => {

@@ -11,7 +11,8 @@
     "pages/dialogbox/dialogbox",
     "pages/listenlist/listenlist",
     "pages/listendetail/listendetail",
-    "pages/favourite/favourite"
+    "pages/favourite/favourite",
+    "pages/scene/scene"
   ],
   "window": {
     "backgroundTextStyle": "light",

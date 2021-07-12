@@ -11,17 +11,24 @@ Page({
   data: {
     sentences: [],
     modelVisible: false,
-    modelItem: null
+    modelItem: null,
+    typeid: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData)
-    this.fetchData()
+    const typeid = options.typeid
+    const typeLabel = options.type_label
+    if (typeid) {
+      this.setData({ typeid })
+    }
+
+    this.fetchData({ typeid })
+
     wx.setNavigationBarTitle({
-      title: '列表'
+      title: typeLabel || '列表'
     })
   },
 
@@ -73,10 +80,14 @@ Page({
   onShareAppMessage: function () {
 
   },
-  fetchData: function() {
+  fetchData: function({ typeid }) {
     const db = wx.cloud.database()
+    const whereCondition = {}
+    if (typeid) whereCondition.type_id = typeid
+
     db.collection('sentences')
       .orderBy('created_at', 'desc')
+      .where(whereCondition)
       .limit(100)
       .get({
         success: res => {

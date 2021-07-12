@@ -1,1 +1,18 @@
 /* pages/favourite/favourite.wxss */
+.favourite_container {
+  padding: 20rpx 30rpx;
+  background-color: #1E2227;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.favourite_container .item {
+  margin-bottom: 50rpx;
+}
+.favourite_container .item .label {
+  font-size: 30rpx;
+  color: rgb(161, 161, 161);
+}
+.favourite_container .item .val {
+  font-size: 40rpx;
+  color: #fff;
+}

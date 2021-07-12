@@ -1,3 +1,5 @@
+const get = require("lodash.get")
+
 // pages/favourite/favourite.js
 Page({
 
@@ -5,14 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    sentences: []    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '列表'
+    })
+    this.fetchData()
   },
 
   /**
@@ -62,5 +67,18 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  fetchData: function() {
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'favouriteList',
+      // 传给云函数的参数
+      success: (res) => {
+        const respData = get(res, 'result.list', [])
+        const sentences = respData.map(i => get(i.item, '[0]'))
+        this.setData({ sentences })
+      },
+      fail: console.error
+    })
   }
 })

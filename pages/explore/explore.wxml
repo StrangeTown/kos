@@ -21,18 +21,28 @@
         <view class="label">背记7句</view>
       </navigator>
 
-      <!-- <navigator class="item review" url='../favourite/favourite'>
+      <navigator class="item collect" url='../favourite/favourite'>
         <view class="icon_wrap">
-          <image class="icon" src="../../assets/images/list.svg" />
+          <image class="icon" src="../../assets/images/favourite.svg" />
         </view>
         <view class="label">收藏</view>
-      </navigator> -->
+      </navigator>
 
       <navigator class="item dialog" url='../dialog/dialog'>
         <view class="icon_wrap">
           <image class="icon" src="../../assets/images/dialog.svg" />
         </view>
         <view class="label">模拟对话</view>
+      </navigator>
+    </view>
+  </view>
+  <view class="section">
+    <view class="items">
+      <navigator class="item scene" url='../scene/scene'>
+        <view class="icon_wrap">
+          <image class="icon" src="../../assets/images/global.svg" />
+        </view>
+        <view class="label">场景</view>
       </navigator>
     </view>
   </view>

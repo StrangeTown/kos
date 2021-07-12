@@ -15,8 +15,12 @@
   align-items: center;
 }
 .review_container .more {
+  margin-left: 20rpx;
   width: 30rpx;
   height: 30rpx;
+}
+.review_container .item .content {
+  flex: 1;
 }
 .review_container .item .content .label {
   font-size: 30rpx;

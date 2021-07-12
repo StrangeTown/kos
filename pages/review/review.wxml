@@ -21,7 +21,7 @@
       </view>
     </view>
   </view>
-  <navigator class="recite_nav" url='../recite/recite'>
+  <navigator class="recite_nav" url='../recite/recite?typeid={{typeid}}'>
     <image class="icon" src="../../assets/images/recite.svg" />
   </navigator>
 </view>

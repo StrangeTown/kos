@@ -1,0 +1,13 @@
+/* pages/scene/scene.wxss */
+.scene_container {
+  padding: 10rpx 30rpx;
+  background-color: #1E2227;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.scene_container .scenes .scene {
+  color: #fff;
+}
+.scene_container .scene + .scene {
+  margin-top: 20rpx;
+}

@@ -1,0 +1,7 @@
+<!--pages/scene/scene.wxml-->
+<view class="scene_container">
+  <view class="scenes">
+    <!-- <view class="scene" wx:for="{{scenes}}">{{item.label}}</view> -->
+    <navigator class="scene" wx:for="{{scenes}}"  url="../review/review?typeid={{item.id}}&type_label={{item.label}}">{{item.label}}</navigator>
+  </view>
+</view>

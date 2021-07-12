@@ -45,7 +45,7 @@
 
 .explore_container .section {
   margin-top: 40rpx;
-  margin-bottom: 80rpx;
+  margin-bottom: 40rpx;
 }
 .explore_container .section .title {
   color: #d2d2d2;
@@ -67,15 +67,19 @@
 }
 .explore_container .item.recite .icon {
   width: 80rpx;
+  height: 80rpx;
 }
-.explore_container .item.review .icon {
-  width: 60rpx;
+.explore_container .item.collect .icon {
+  width: 80rpx;
+  height: 80rpx;
 }
 .explore_container .item.dialog .icon {
   width: 70rpx;
+  height: 80rpx;
 }
-.explore_container .item.recent .icon {
-  width: 60rpx;
+.explore_container .item.scene .icon {
+  width: 70rpx;
+  height: 70rpx;
 }
 .explore_container .item .icon_wrap {
   width: 200rpx;
