@@ -2,6 +2,9 @@
 <view class="scene_container">
   <view class="scenes">
     <!-- <view class="scene" wx:for="{{scenes}}">{{item.label}}</view> -->
-    <navigator class="scene" wx:for="{{scenes}}"  url="../review/review?typeid={{item.id}}&type_label={{item.label}}">{{item.label}}</navigator>
+    <navigator class="scene" wx:for="{{scenes}}"  url="../review/review?typeid={{item.id}}&type_label=场景 - {{item.label}}">
+      <image class="img" src="{{item.bg}}" />
+      <view class="label">{{item.label}}</view>
+    </navigator>
   </view>
 </view>

@@ -8,11 +8,18 @@ Page({
     scenes: [
       {
         label: 'Airport',
-        id: 1
+        id: 1,
+        bg: 'cloud://main-6lo90.6d61-main-6lo90-1300808637/img/amarnath-tade-gXs-mwiXrhA-unsplash (1).jpeg'
       },
       {
         label: 'Hotel',
-        id: 2
+        id: 2,
+        bg: 'cloud://main-6lo90.6d61-main-6lo90-1300808637/img/anmol-seth-hDbCjHNdF48-unsplash (1).jpeg'
+      },
+      {
+        label: 'Restaurant',
+        id: 3,
+        bg: 'cloud://main-6lo90.6d61-main-6lo90-1300808637/img/stil-u2Lp8tXIcjw-unsplash (1).jpeg'
       }
     ]
   },
@@ -21,7 +28,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '场景'
+    })
   },
 
   /**
