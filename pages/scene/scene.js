@@ -20,6 +20,11 @@ Page({
         label: 'Restaurant',
         id: 3,
         bg: 'cloud://main-6lo90.6d61-main-6lo90-1300808637/img/stil-u2Lp8tXIcjw-unsplash (1).jpeg'
+      },
+      {
+        label: 'Shopping',
+        id: 4,
+        bg: 'cloud://main-6lo90.6d61-main-6lo90-1300808637/img/eduardo-soares-QsYXYSwV3NU-unsplash (1).jpeg'
       }
     ]
   },

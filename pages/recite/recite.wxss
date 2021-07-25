@@ -50,23 +50,6 @@
 .recite_container .item .label {
   color: #282E3C;
 }
-.recite_container .actions {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  height: 120rpx;
-  display: none;
-}
-.recite_container .actions .action {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ddd;
-}
 .recite_container .loading_layer {
   position: fixed;
   top: 0;
@@ -106,14 +89,10 @@
 .recite_container .bottom_box {
   position: fixed;
   left: 0;
-  bottom: 10rpx;
+  bottom: 0;
+  height: 140rpx;
   width: 100vw;
-}
-.recite_container .time {
-  display: flex;
-  justify-content: center;
-  color: #7d7d7d;
-  font-size: 30rpx;
+  border-top: 1px solid rgb(82, 82, 82);
 }
 .recite_container .progress_container {
   display: flex;
@@ -133,10 +112,43 @@
 .recite_container .progress_container .progress_item + .progress_item {
   margin-left: 3rpx;
 }
-.recite_container .hint_btn {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 26rpx;
-  color: rgb(82, 82, 82);
-  text-decoration: underline;
+.recite_container .actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  height: 100%;
+  padding-top: 20rpx;
+}
+.recite_container .action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.recite_container .action .icon_wrap {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recite_container .action .white {
+  display: none;
+}
+.recite_container .action.active .white {
+  display: block;
+}
+.recite_container .action .default {
+  display: block;
+}
+.recite_container .action.active .default {
+  display: none;
+}
+.recite_container .action image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.recite_container .action_tip {
+  margin-top: 8rpx;
+  font-size: 20rpx;
+  color: #8b8b8b;
 }

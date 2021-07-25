@@ -1,3 +1,7 @@
+const get = require("lodash.get")
+// 在页面中定义激励视频广告
+let videoAd = null
+
 // pages/recite/recite.js
 const loadingTips = [
   '利用碎片时间背几句口语吧',
@@ -17,14 +21,15 @@ Page({
     fetchedCount: 0,
     sentences: [],
     activeIndex: 0,
-    speed: 2000,
+    speed: 2500,
     reciteInterval: null,
     loading: true,
     loadingTip: '',
     progress: Array(7).fill(1),
     startTime: null,
     timeStr: '',
-    hinting: false
+    hinting: false,
+    voicePlaying: false
   },
 
   /**
@@ -32,15 +37,32 @@ Page({
    */
   onLoad: function (options) {
     const typeid = options.typeid
-    console.log(typeid)
 
     this.initLoadingTip()
-    this.startTimeInterval()
-    this.fetchData({ typeid })
-    this.setTitle(' ')
     setTimeout(() => {
       this.setData({ loading: false })
     }, 2000)
+
+    this.fetchData({ typeid })
+    this.initAd()
+    this.setTitle(' ')
+  },
+  initAd: function() {
+    // 在页面onLoad回调事件中创建激励视频广告实例
+    if (wx.createRewardedVideoAd) {
+      videoAd = wx.createRewardedVideoAd({
+        adUnitId: 'adunit-403748566480b308'
+      })
+      videoAd.onLoad(() => {})
+      videoAd.onError((err) => {})
+      videoAd.onClose((res) => {
+        if (res && res.isEnded) {
+          this.togglePlay()
+        } else {
+          // 播放中途退出，不下发游戏奖励
+        }
+      })
+    }
   },
 
   /**
@@ -91,6 +113,15 @@ Page({
   onShareAppMessage: function () {
 
   },
+  playSentenceAudio: function(sentenceIdx) {
+    const item = this.data.sentences[sentenceIdx]
+    const mp3 = get(item, 'mp3')
+    if (mp3 && this.data.voicePlaying) {
+      const innerAudioContext = wx.createInnerAudioContext()
+      innerAudioContext.autoplay = true
+      innerAudioContext.src = mp3
+    }
+  },
   start: function() {
     clearInterval(this.data.reciteInterval)
     const milliseconds = this.data.speed
@@ -98,6 +129,7 @@ Page({
     const newInterval = setInterval(() => {
       const dataLength = this.data.sentences.length
       const newIdx = Math.floor(Math.random() * dataLength)
+      this.playSentenceAudio(newIdx)
       this.setData({
         activeIndex: newIdx
       })
@@ -227,6 +259,32 @@ Page({
     const hintState = this.data.hinting
     this.setData({
       hinting: !hintState
+    })
+  },
+  showAd: function() {
+    // 用户触发广告后，显示激励视频广告
+    if (videoAd) {
+      videoAd.show().catch(() => {
+        // 失败重试
+        videoAd.load()
+          .then(() => videoAd.show())
+          .catch(err => {
+            console.log('激励视频 广告显示失败')
+          })
+      })
+    }
+  },
+  handleVoiceClick: function() {
+    if (this.data.voicePlaying) {
+      this.togglePlay()
+    } else {
+      this.showAd()
+    }
+  },
+  togglePlay: function() {
+    const playState = this.data.voicePlaying
+    this.setData({
+      voicePlaying: !playState
     })
   }
 })
