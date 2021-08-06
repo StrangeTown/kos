@@ -128,7 +128,10 @@ Page({
 
     const newInterval = setInterval(() => {
       const dataLength = this.data.sentences.length
-      const newIdx = Math.floor(Math.random() * dataLength)
+      let newIdx = Math.floor(Math.random() * dataLength)
+      if (newIdx === this.data.activeIndex) {
+        newIdx = newIdx + 1 > dataLength - 1 ? 0 : newIdx + 1
+      }
       this.playSentenceAudio(newIdx)
       this.setData({
         activeIndex: newIdx
