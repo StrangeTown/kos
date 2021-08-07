@@ -122,9 +122,44 @@ Page({
       innerAudioContext.src = mp3
     }
   },
+  getRandomIndex: function() {
+    const dataLength = this.data.sentences.length
+    let newIdx = Math.floor(Math.random() * dataLength)
+
+    const sameAsBefore = newIdx === this.data.activeIndex
+    const noValue = !get(this.data.sentences, `[${newIdx}].value`)
+
+    if (sameAsBefore || noValue) {
+      newIdx = newIdx + 1 > dataLength - 1 ? 0 : newIdx + 1
+    }
+
+    return newIdx
+  },
+  loadSentence: function(sentennceIndex) {
+    this.playSentenceAudio(sentennceIndex)
+    this.setData({
+      activeIndex: sentennceIndex
+    })
+  },
+  getIntervalTime: function(sentennceIndex) {
+    const str = this.data.sentences[sentennceIndex]
+    const strLength = get(str, 'label.length')
+    const intervalTime = strLength ? strLength * 680 : 3000
+    return intervalTime
+  },
+  activitateNext: function() {
+    const sentennceIndex = this.getRandomIndex()
+    console.log(sentennceIndex)
+    this.loadSentence(sentennceIndex)
+
+    setTimeout(this.activitateNext, this.getIntervalTime(sentennceIndex))
+  },
   start: function() {
+    this.activitateNext()
+    return
+
     clearInterval(this.data.reciteInterval)
-    const milliseconds = this.data.speed
+    let intervalTime = this.data.speed
 
     const newInterval = setInterval(() => {
       const dataLength = this.data.sentences.length
@@ -132,11 +167,17 @@ Page({
       if (newIdx === this.data.activeIndex) {
         newIdx = newIdx + 1 > dataLength - 1 ? 0 : newIdx + 1
       }
+
+      const str = this.data.sentences[newIdx]
+      const strLength = get(str, 'label.length')
+      intervalTime = strLength ? strLength * 650 : 3000
+      console.log(intervalTime)
+
       this.playSentenceAudio(newIdx)
       this.setData({
         activeIndex: newIdx
       })
-    }, milliseconds);
+    }, intervalTime);
 
     this.setData({
       reciteInterval: newInterval
@@ -149,23 +190,32 @@ Page({
       })
     }
   },
-  fetchMore: function() {
+  updateSentencesData: function(item, indexToDelete) {
+    const sentences = this.data.sentences.map((s, idx) => {
+      return idx === indexToDelete ? item : s
+    })
+    this.setData({ sentences })
+  },
+  fetchNew: function(cb) {
     const db = wx.cloud.database()
     const fetchLimit = 1
     const skipCount = this.data.fetchedCount
-  
+
     db.collection('sentences')
       .orderBy('created_at', 'desc')
       .limit(fetchLimit)
       .skip(skipCount)
       .get({
         success: res => {
-          const newSentences = [...this.data.sentences, ...res.data]
-          this.setData({
-            sentences: newSentences,
-            fetchedCount: this.data.fetchedCount + fetchLimit
-          })
-          this.start()
+          const item = get(res, 'data[0]')
+          if (item) {
+            this.setData({
+              fetchedCount: this.data.fetchedCount + fetchLimit
+            })
+            cb && cb(item)
+          } else {
+            'no item found'
+          }
         },
         fail: err => {
           wx.showToast({
@@ -207,27 +257,23 @@ Page({
     this.setData({
       speed: 3000
     })
-    this.start()
+    // this.start()
   },
   fast: function() {
     this.setData({
       speed: 1500
     })
-    this.start()
+    // this.start()
   },
   updateProgress: function() {
     const newProgerss = [...this.data.progress, 1]
     this.setData({ progress: newProgerss })
   },
   deleteItem: function(e) {
-    const itemIdx = e.currentTarget.dataset.val
-    const newSentences = [...this.data.sentences]
-    newSentences.splice(itemIdx, 1)
-
-    this.setData({
-      sentences: newSentences,
+    const indexToDelete = e.currentTarget.dataset.val
+    this.fetchNew((item) => {
+      this.updateSentencesData(item, indexToDelete)
     })
-    this.fetchMore()
     this.updateProgress()
   },
   initLoadingTip: function() {
