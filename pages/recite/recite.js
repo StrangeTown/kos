@@ -22,12 +22,8 @@ Page({
     sentences: [],
     activeIndex: 0,
     speed: 2500,
-    reciteInterval: null,
     loading: true,
     loadingTip: '',
-    progress: Array(7).fill(1),
-    startTime: null,
-    timeStr: '',
     hinting: false,
     voicePlaying: false
   },
@@ -43,7 +39,10 @@ Page({
       this.setData({ loading: false })
     }, 2000)
 
-    this.fetchData({ typeid })
+    this.fetchData({
+      typeid,
+      cb: this.activateNext
+    })
     this.initAd()
     this.setTitle(' ')
   },
@@ -90,7 +89,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    clearInterval(this.data.reciteInterval)
     clearInterval(timeInterval)
   },
 
@@ -147,41 +145,12 @@ Page({
     const intervalTime = strLength ? strLength * 680 : 3000
     return intervalTime
   },
-  activitateNext: function() {
+  activateNext: function() {
     const sentennceIndex = this.getRandomIndex()
     console.log(sentennceIndex)
     this.loadSentence(sentennceIndex)
 
-    setTimeout(this.activitateNext, this.getIntervalTime(sentennceIndex))
-  },
-  start: function() {
-    this.activitateNext()
-    return
-
-    clearInterval(this.data.reciteInterval)
-    let intervalTime = this.data.speed
-
-    const newInterval = setInterval(() => {
-      const dataLength = this.data.sentences.length
-      let newIdx = Math.floor(Math.random() * dataLength)
-      if (newIdx === this.data.activeIndex) {
-        newIdx = newIdx + 1 > dataLength - 1 ? 0 : newIdx + 1
-      }
-
-      const str = this.data.sentences[newIdx]
-      const strLength = get(str, 'label.length')
-      intervalTime = strLength ? strLength * 650 : 3000
-      console.log(intervalTime)
-
-      this.playSentenceAudio(newIdx)
-      this.setData({
-        activeIndex: newIdx
-      })
-    }, intervalTime);
-
-    this.setData({
-      reciteInterval: newInterval
-    })
+    setTimeout(this.activateNext, this.getIntervalTime(sentennceIndex))
   },
   setTitle: function(title) {
     if (title) {
@@ -226,7 +195,7 @@ Page({
         }
       })
   },
-  fetchData: function({ typeid }) {
+  fetchData: function({ typeid, cb }) {
     const db = wx.cloud.database()
     const fetchLimit = 7
     const whereCondition = {}
@@ -242,7 +211,7 @@ Page({
             sentences: res.data,
             fetchedCount: this.data.fetchedCount + fetchLimit
           })
-          this.start()
+          cb && cb()
         },
         fail: err => {
           wx.showToast({
@@ -257,24 +226,17 @@ Page({
     this.setData({
       speed: 3000
     })
-    // this.start()
   },
   fast: function() {
     this.setData({
       speed: 1500
     })
-    // this.start()
-  },
-  updateProgress: function() {
-    const newProgerss = [...this.data.progress, 1]
-    this.setData({ progress: newProgerss })
   },
   deleteItem: function(e) {
     const indexToDelete = e.currentTarget.dataset.val
     this.fetchNew((item) => {
       this.updateSentencesData(item, indexToDelete)
     })
-    this.updateProgress()
   },
   initLoadingTip: function() {
     const tipsLength = loadingTips.length
@@ -283,26 +245,6 @@ Page({
     this.setData({
       loadingTip: activeTip
     })
-  },
-  startTimeInterval: function() {
-    timeInterval = setInterval(() => {
-      this.updateTimeStr()
-    }, 1000);
-  },
-  updateTimeStr: function() {
-    let startDate = this.data.startTime
-    if (!startDate) {
-      startDate = new Date()
-      this.setData({ startTime: startDate })
-    }
-    const endDate = new Date()
-
-    const secondsDiff = (endDate.getTime() - startDate.getTime()) / 1000
-    const intSeconds = Number.parseInt(secondsDiff, 10)
-    const minutes = Math.floor(intSeconds / 60)
-    const seconds = intSeconds - (minutes * 60)
-    const secondsStr = seconds < 10 ? `0${seconds}` : seconds
-    this.setData({ timeStr: `${minutes}:${secondsStr}` })
   },
   toggleHint: function() {
     const hintState = this.data.hinting

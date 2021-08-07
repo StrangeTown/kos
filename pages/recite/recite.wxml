@@ -42,9 +42,6 @@
         <view class="action_tip">观看广告后打开</view>
       </view>
     </view>
-    <!-- <view class="progress_container">
-      <view class="progress_item" wx:for="{{progress}}"></view>
-    </view> -->
 
   </view>
 </view>
