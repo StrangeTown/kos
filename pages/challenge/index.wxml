@@ -1,5 +1,9 @@
 <!--pages/challenge/index.wxml-->
 <!-- <text>pages/challenge/index.wxml</text> -->
 <view class="challenge_container">
-  <text class="tip">开发中...</text>
+  <view class="tip">开发中...</view>
+  <!-- <view class="tip">{{sentences[currentIndex].label}}</view>
+  <view class="fragments">
+    <view class="fragment" wx:for="{{fragments}}">{{item}}</view>
+  </view> -->
 </view>
