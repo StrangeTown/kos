@@ -18,15 +18,15 @@
         <view class="icon_wrap">
           <image class="icon" src="../../assets/images/recite.svg" />
         </view>
-        <view class="label">背记7句</view>
+        <view class="label">背记</view>
       </navigator>
 
-      <navigator class="item collect" url='../favourite/favourite'>
+      <!-- <navigator class="item collect" url='../favourite/favourite'>
         <view class="icon_wrap">
           <image class="icon" src="../../assets/images/favourite.svg" />
         </view>
         <view class="label">收藏</view>
-      </navigator>
+      </navigator> -->
 
       <navigator class="item dialog" url='../dialog/dialog'>
         <view class="icon_wrap">
@@ -36,7 +36,7 @@
       </navigator>
     </view>
   </view>
-  <view class="section">
+  <!-- <view class="section">
     <view class="items">
       <navigator class="item scene" url='../scene/scene'>
         <view class="icon_wrap">
@@ -45,7 +45,7 @@
         <view class="label">场景</view>
       </navigator>
     </view>
-  </view>
+  </view> -->
   <!-- <view class="section">
     <view class="title">词汇</view>
     <view class="items">
@@ -68,8 +68,4 @@
       </navigator>
     </view>
   </view> -->
-  <view class='contact_us_wrap'>
-    <!-- <contact-button></contact-button> -->
-    <button class='contact_us' open-type="contact" bindcontact="handleContact">联系开发者</button>
-  </view>
 </view>

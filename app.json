@@ -12,7 +12,9 @@
     "pages/listenlist/listenlist",
     "pages/listendetail/listendetail",
     "pages/favourite/favourite",
-    "pages/scene/scene"
+    "pages/scene/scene",
+    "pages/challenge/index",
+    "pages/me/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,5 +23,37 @@
     "navigationBarTextStyle": "white"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "custom": true,
+    "color": "#ddd",
+    "selectedColor": "#eee",
+    "backgroundColor": "#1E2227",
+    "list": [
+      {
+        "pagePath": "pages/explore/explore",
+        "iconPath": "assets/images/tab/home.png",
+        "selectedIconPath": "assets/images/tab/home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/scene/scene",
+        "iconPath": "assets/images/tab/type.png",
+        "selectedIconPath": "assets/images/tab/type.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/challenge/index",
+        "iconPath": "assets/images/tab/trophy.png",
+        "selectedIconPath": "assets/images/tab/trophy.png",
+        "text": "挑战"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "iconPath": "assets/images/tab/me.png",
+        "selectedIconPath": "assets/images/tab/me.png",
+        "text": "设置"
+      }
+    ]
+  }
 }

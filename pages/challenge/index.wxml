@@ -1,0 +1,5 @@
+<!--pages/challenge/index.wxml-->
+<!-- <text>pages/challenge/index.wxml</text> -->
+<view class="challenge_container">
+  <text class="tip">开发中...</text>
+</view>

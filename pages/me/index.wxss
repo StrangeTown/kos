@@ -1,0 +1,29 @@
+/* pages/me/index.wxss */
+.me_container {
+  padding: 20rpx 20rpx;
+  background-color: #1E2227;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.me_container .item {
+  background-color: #282E3C;
+  border-radius: 6rpx;
+  padding: 16rpx;
+  display: flex;
+  justify-content: flex-start;
+  color: #d2d2d2;
+  font-size: 32rpx;
+}
+.me_container .item + .item {
+  margin-top: 40rpx;
+}
+.me_container .item.contact button {
+  font-size: 32rpx;
+  background-color: transparent;
+  width: initial;
+  padding: initial;
+  font-weight: normal;
+  width: 100%;
+  text-align-last: left;
+  color: #d2d2d2;
+}

@@ -25,7 +25,9 @@ Page({
     loading: true,
     loadingTip: '',
     hinting: false,
-    voicePlaying: false
+    voicePlaying: false,
+    working: true,
+    autoUpdating: false
   },
 
   /**
@@ -90,6 +92,7 @@ Page({
    */
   onUnload: function () {
     clearInterval(timeInterval)
+    this.setData({ working: false })
   },
 
   /**
@@ -133,11 +136,24 @@ Page({
 
     return newIdx
   },
+  autoUpdate: function(sentennceIndex) {
+    if (Math.random() < 0.6) return
+
+    setTimeout(() => {
+      this.fetchNew((item) => {
+        this.updateSentencesData(item, sentennceIndex)
+      })
+    }, 1000)
+  },
   loadSentence: function(sentennceIndex) {
     this.playSentenceAudio(sentennceIndex)
     this.setData({
       activeIndex: sentennceIndex
     })
+
+    if (this.data.autoUpdating) {
+      this.autoUpdate(sentennceIndex)
+    }
   },
   getIntervalTime: function(sentennceIndex) {
     const str = this.data.sentences[sentennceIndex]
@@ -146,6 +162,8 @@ Page({
     return intervalTime
   },
   activateNext: function() {
+    if (!this.data.working) return
+
     const sentennceIndex = this.getRandomIndex()
     console.log(sentennceIndex)
     this.loadSentence(sentennceIndex)
@@ -250,6 +268,16 @@ Page({
     const hintState = this.data.hinting
     this.setData({
       hinting: !hintState
+    })
+  },
+  toggleAutoUpdate: function() {
+    const newState = !this.data.autoUpdating
+    this.setData({
+      autoUpdating: newState
+    })
+    wx.showToast({
+      title: newState ? '自动更换句子' : '手动更换句子',
+      icon: 'none'
     })
   },
   showAd: function() {

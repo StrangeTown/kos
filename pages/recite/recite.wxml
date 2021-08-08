@@ -17,8 +17,8 @@
           <view class='label'>{{item.label}}</view>
           <view class='value'>{{item.value}}</view>
         </view>
-        <view class="close" bind:touchend="deleteItem" data-val="{{index}}">
-          <image class="close_icon" src="../../assets/images/close.svg" />
+        <view wx:if="{{!autoUpdating}}" class="close" bind:touchend="deleteItem" data-val="{{index}}">
+          <image class="close_icon" src="../../assets/images/change.svg" />
         </view>
       </view>
     </view>
@@ -31,6 +31,13 @@
         <view class="icon_wrap">
           <image class="hint_icon default" src="../../assets/images/hint.svg" />
           <image class="hint_icon white" src="../../assets/images/hint_white.svg" />
+        </view>
+        <view class="action_tip"></view>
+      </view>
+      <view class="action {{autoUpdating && 'active'}}" bind:tap="toggleAutoUpdate">
+        <view class="icon_wrap">
+          <image class="hint_icon default" src="../../assets/images/auto.svg" />
+          <image class="hint_icon white" src="../../assets/images/auto_white.svg" />
         </view>
         <view class="action_tip"></view>
       </view>

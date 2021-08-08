@@ -1,0 +1,10 @@
+<!-- pages/me/index.wxml -->
+<!-- <text>pages/me/index.wxml</text> -->
+<view class="me_container">
+  <navigator class="item collect" url='../favourite/favourite'>
+    <view class="label">收藏</view>
+  </navigator>
+  <view class='item contact'>
+    <button open-type="contact" bindcontact="handleContact">联系开发者</button>
+  </view>
+</view>

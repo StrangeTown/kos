@@ -32,6 +32,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  initTabbar: function() {
+    const tabBar = this.getTabBar()
+    if (tabBar) {
+      tabBar.setData({ selected: 1 })
+    }
+  },
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '场景'
@@ -49,7 +55,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.initTabbar()
   },
 
   /**

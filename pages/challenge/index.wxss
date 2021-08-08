@@ -1,0 +1,13 @@
+/* pages/challenge/index.wxss */
+.challenge_container {
+  padding: 20rpx 20rpx;
+  background-color: #1E2227;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.challenge_container .tip {
+  color: #fff;
+}
