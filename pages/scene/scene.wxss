@@ -5,15 +5,28 @@
   min-height: 100vh;
   box-sizing: border-box;
 }
+.scene_container .row {
+  padding-top: 40rpx;
+}
+.scene_container .row_title {
+  color: #ddd;
+  padding-left: 20rpx;
+  font-size: 24rpx;
+}
+.scene_container .row_content {
+  margin-top: 20rpx;
+  display: flex;
+  overflow: auto;
+  flex: 1;
+}
 .scene_container .scenes {
   display: flex;
-  flex-wrap: wrap;
+  min-height: min-content;
 }
 .scene_container .scenes .scene {
   color: #fff;
-  width: 50%;
+  width: 300rpx;
   height: 500rpx;
-  /* margin-bottom: 20rpx; */
   display: flex;
   justify-content: center;
   position: relative;
@@ -33,6 +46,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.scene_container .scene .sub_label {
+  position: absolute;
+  bottom: 30rpx;
+  font-weight: light;
+  font-size: 20rpx;
+  color: #ddd;
 }
 .scene_container .scene + .scene {
   /* margin-top: 20rpx; */

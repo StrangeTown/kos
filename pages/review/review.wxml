@@ -7,7 +7,7 @@
         <view class="label">{{item.label}}</view>
         <view class="value">{{item.value}}</view>
       </view>
-      <image class="more" src="../../assets/images/more.svg"  data-id="{{item._id}}" capture-catch:tap="focus"/>
+      <!-- <image class="more" src="../../assets/images/more.svg"  data-id="{{item._id}}" capture-catch:tap="focus"/> -->
     </view>
   </view>
   <view class="model" wx:if="{{modelVisible}}">

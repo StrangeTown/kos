@@ -28,12 +28,12 @@
         <view class="label">收藏</view>
       </navigator> -->
 
-      <navigator class="item dialog" url='../dialog/dialog'>
+      <!-- <navigator class="item dialog" url='../dialog/dialog'>
         <view class="icon_wrap">
           <image class="icon" src="../../assets/images/dialog.svg" />
         </view>
         <view class="label">模拟对话</view>
-      </navigator>
+      </navigator> -->
     </view>
   </view>
   <!-- <view class="section">

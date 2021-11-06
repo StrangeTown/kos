@@ -41,13 +41,13 @@
         </view>
         <view class="action_tip"></view>
       </view>
-      <view class="action {{voicePlaying && 'active'}}" bind:tap="handleVoiceClick">
+      <!-- <view class="action {{voicePlaying && 'active'}}" bind:tap="handleVoiceClick">
         <view class="icon_wrap">
           <image class="voice_icon default" src="../../assets/images/voice.svg" />
           <image class="voice_icon white" src="../../assets/images/voice_white.svg" />
         </view>
         <view class="action_tip">观看广告后打开</view>
-      </view>
+      </view> -->
     </view>
 
   </view>

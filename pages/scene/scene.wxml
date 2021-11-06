@@ -1,10 +1,26 @@
 <!--pages/scene/scene.wxml-->
 <view class="scene_container">
-  <view class="scenes">
-    <!-- <view class="scene" wx:for="{{scenes}}">{{item.label}}</view> -->
-    <navigator class="scene" wx:for="{{scenes}}"  url="../review/review?typeid={{item.id}}&type_label=场景 - {{item.label}}">
-      <image class="img" src="{{item.bg}}" />
-      <view class="label">{{item.label}}</view>
-    </navigator>
+  <view class="row">
+    <view class="row_title">Recommend</view>
+    <view class="row_content">
+      <view class="scenes">
+        <navigator class="scene"  url="../recite/recite">
+          <image class="img" src="https://z3.ax1x.com/2021/11/06/IlSuKU.jpg" mode="aspectFill"/>
+          <view class="label">公众号</view>
+          <view class="sub_label">每日一篇英语阅读</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class="row">
+    <view class="row_title">Scenes</view>
+    <view class="row_content">
+      <view class="scenes">
+        <navigator class="scene" wx:for="{{scenes}}"  url="../review/review?typeid={{item.id}}&type_label={{item.label}}">
+          <image class="img" src="{{item.bg}}" />
+          <view class="label">{{item.label}}</view>
+        </navigator>
+      </view>
+    </view>
   </view>
 </view>

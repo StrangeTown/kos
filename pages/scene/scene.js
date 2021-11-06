@@ -40,7 +40,7 @@ Page({
   },
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '场景'
+      title: 'Home'
     })
   },
 
