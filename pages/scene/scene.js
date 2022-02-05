@@ -1,10 +1,13 @@
 // pages/scene/scene.js
+const get = require('lodash.get')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    totalLabel: '',
     scenes: [
       {
         label: 'Airport',
@@ -42,6 +45,7 @@ Page({
     wx.setNavigationBarTitle({
       title: 'Home'
     })
+    this.fetchData()
   },
 
   /**
@@ -91,5 +95,15 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  fetchData: async function () {
+    const db = wx.cloud.database()
+    const whereCondition = {}
+    const { typeid } = this.data
+    if (typeid) whereCondition.type_id = typeid
+
+    const count = await db.collection('sentences').count()
+    const total = get(count, 'total')
+    this.setData({ totalLabel: total ? `共${total}句口语` : ''})
+  },
 })

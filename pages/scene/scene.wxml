@@ -5,9 +5,9 @@
     <view class="row_content">
       <view class="scenes">
         <navigator class="scene"  url="../recite/recite">
-          <image class="img" src="https://z3.ax1x.com/2021/11/06/IlSuKU.jpg" mode="aspectFill"/>
-          <view class="label">公众号</view>
-          <view class="sub_label">每日一篇英语阅读</view>
+          <image class="img" src="https://s4.ax1x.com/2022/02/04/HelcX8.jpg" mode="aspectFill"/>
+          <view class="label">句库</view>
+          <view class="sub_label">{{totalLabel}}</view>
         </navigator>
       </view>
     </view>
